@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скачать лаунчер — Brilliant RP</title>
+    <!-- Подключаем шрифт Inter и иконки FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --accent-color: #2563eb;
+            --accent-hover: #1d4ed8;
+            --accent-glow: rgba(37, 99, 235, 0.25);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Шапка */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: #3b82f6;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            transition: color 0.2s;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: #3b82f6;
+        }
+
+        /* Основной блок */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex-grow: 1;
+            justify-content: center;
+        }
+
+        .hero-badge {
+            background: rgba(37, 99, 235, 0.15);
+            color: #60a5fa;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        h1 span {
+            color: #3b82f6;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        /* Карточка скачивания */
+        .download-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent-glow);
+            margin-bottom: 50px;
+        }
+
+        .download-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 16px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+            cursor: pointer;
+        }
+
+        .download-btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+        }
+
+        .file-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            padding: 0 5px;
+        }
+
+        /* Инструкция и требования */
+        .grid-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .info-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 25px;
+        }
+
+        .info-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #60a5fa;
+        }
+
+        .info-card ul {
+            list-style: none;
+        }
+
+        .info-card li {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-card li i {
+            font-size: 0.5rem;
+            color: #3b82f6;
+        }
+
+        /* Футер */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 600px) {
+            .download-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">
+            <i class="fa-solid fa-gem" style="color: #3b82f6;"></i> BRILLIANT <span>RP</span>
+        </a>
+        <div class="social-links">
+            <a href="#" target="_blank" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+            <a href="#" target="_blank" title="Discord"><i class="fa-brands fa-discord"></i></a>
+            <a href="#" target="_blank" title="VK"><i class="fa-brands fa-vk"></i></a>
+        </div>
+    </header>
+
+    <main>
+        <div class="hero-badge">Официальный релиз лаунчера</div>
+        <h1>Начни играть в <span>Brilliant RP</span> прямо сейчас</h1>
+        <p class="subtitle">Скачай наш клиент, создавай уникального персонажа и играй вместе с друзьями на мобильном устройстве!</p>
+
+        <!-- Блок скачивания с новой ссылкой -->
+        <div class="download-card">
+            <a href="https://dl.dropboxusercontent.com/scl/fi/d8kidfxpfnt4yeq6n5e11/Brilliant-RolePlay_0.1.1-beta.apk?rlkey=6ccbz6ngtv2bpyrilx8u7az04&st=ktafy7ze" class="download-btn" download="Brilliant-RolePlay_0.1.1-beta.apk">
+                <i class="fa-solid fa-download"></i> Скачать Brilliant RP (v0.1.1 Beta)
+            </a>
+            <div class="file-info">
+                <span>Платформа: Android</span>
+                <span>Версия: 0.1.1 Beta</span>
+            </div>
+        </div>
+
+        <!-- Дополнительные блоки -->
+        <div class="grid-info">
+            <div class="info-card">
+                <h3><i class="fa-solid fa-list-check"></i> Как начать играть?</h3>
+                <ul>
+                    <li><i class="fa-solid fa-circle"></i> Скачайте и установите APK-файл</li>
+                    <li><i class="fa-solid fa-circle"></i> Запустите лаунчер Brilliant RP</li>
+                    <li><i class="fa-solid fa-circle"></i> Дождитесь завершения установки кэша</li>
+                    <li><i class="fa-solid fa-circle"></i> Укажите ваш игровой ник и заходите на сервер</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3><i class="fa-solid fa-microchip"></i> Системные требования</h3>
+                <ul>
+                    <li><i class="fa-solid fa-circle"></i> ОС: Android 7.0 и выше</li>
+                    <li><i class="fa-solid fa-circle"></i> Оперативная память: от 2 ГБ</li>
+                    <li><i class="fa-solid fa-circle"></i> Свободное место: от 2 ГБ</li>
+                    <li><i class="fa-solid fa-circle"></i> Подключение к интернету</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Brilliant RP. Все права защищены.</p>
+    </footer>
+
+</body>
+</html>
